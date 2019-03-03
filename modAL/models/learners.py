@@ -39,33 +39,7 @@ class ActiveLearner(BaseLearner):
             which the model has been trained on.
         y_training: The labels corresponding to X_training.
 
-    Examples:
-
-        >>> from sklearn.datasets import load_iris
-        >>> from sklearn.ensemble import RandomForestClassifier
-        >>> from modAL.models import ActiveLearner
-        >>> iris = load_iris()
-        >>> # give initial training examples
-        >>> X_training = iris['data'][[0, 50, 100]]
-        >>> y_training = iris['target'][[0, 50, 100]]
-        >>>
-        >>> # initialize active learner
-        >>> learner = ActiveLearner(
-        ...     estimator=RandomForestClassifier(),
-        ...     X_training=X_training, y_training=y_training
-        ... )
-        >>>
-        >>> # querying for labels
-        >>> query_idx, query_sample = learner.query(iris['data'])
-        >>>
-        >>> # ...obtaining new labels from the Oracle...
-        >>>
-        >>> # teaching newly labelled examples
-        >>> learner.teach(
-        ...     X=iris['data'][query_idx].reshape(1, -1),
-        ...     y=iris['target'][query_idx].reshape(1, )
-        ... )
-    """
+     
 
     def __init__(self,
                  estimator: BaseEstimator,
