@@ -172,10 +172,10 @@ class BayesianOptimizer(BaseLearner):
         ...         optimizer.teach(X[query_idx].reshape(1, -1), y[query_idx].reshape(1, -1))
     """
     def __init__(self,
-                 estimator: BaseEstimator,
-                 query_strategy: Callable = max_EI,
-                 X_training: Optional[modALinput] = None,
-                 y_training: Optional[modALinput] = None,
+                 estimator = BaseEstimator,
+                 query_strategy= Callable = max_EI,
+                 X_training= Optional[modALinput] = None,
+                 y_training= Optional[modALinput] = None,
                  bootstrap_init: bool = False,
                  **fit_kwargs) -> None:
         super(BayesianOptimizer, self).__init__(estimator, query_strategy,
